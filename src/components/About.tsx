@@ -1,15 +1,28 @@
 'use client'
 
 import SectionHeading from "./SectionHeading";
+import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion"
+import { useActiveSectionContext } from "../context/ActiveSectionContextProvider";
+import { useEffect } from "react";
 
 export default function About() {
+
+    const { ref, inView } = useInView({ threshold: 0.75 })
+    const { setActiveSection } = useActiveSectionContext()
+
+    useEffect(() => {
+        if (inView) {
+            setActiveSection("About")
+        }
+    }, [inView, setActiveSection])
+
     return (
-        <motion.section id="about" className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28" initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.175 }}>
+        <motion.section ref={ref} id="about" className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28" initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.175 }}>
             <SectionHeading>About me</SectionHeading>
             <p className="mb-3">
                 After graduating with a degree in{" "}
-                <span className="font-medium">Accounting</span>, I decided to pursue my
+                <span className="font-medium">Computer Application</span>, I decided to pursue my
                 passion for programming. I enrolled in a coding bootcamp and learned{" "}
                 <span className="font-medium">full-stack web development</span>.{" "}
                 <span className="italic">My favorite part of programming</span> is the
