@@ -1,13 +1,15 @@
 import Intro from "@/src/components/Intro";
 import SectionDivider from "../components/SectionDivider";
 import About from "../components/About";
+import Projects from "../components/Projects";
 
 export default function Home() {
   return (
     <main className="flex flex-col items-center px-4 ">
       <Intro />
       <SectionDivider />   
-      <About />   
+      <About /> 
+      <Projects />  
     </main>
   );
 }
