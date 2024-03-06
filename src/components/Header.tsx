@@ -8,7 +8,7 @@ import { useActiveSectionContext } from '../context/ActiveSectionContextProvider
 
 export default function Header() {
 
-    const { activeSection, setActiveSection } = useActiveSectionContext()
+    const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext()
 
     return (
         <header className="z-[999] relative">
@@ -20,7 +20,7 @@ export default function Header() {
                     {
                         links.map((link) => (
                             <motion.li key={link.hash} className='h-3/4 flex items-center justify-center relative' initial={{ y: -100, opacity: 0 }} animate={{ y: 0, opacity: 1 }}>
-                                <Link onClick={() => setActiveSection(link.name)} href={link.hash} className={clsx('flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition', { "text-gray-950": activeSection === link.name })}>{link.name}{link.name === activeSection && (<motion.span className='bg-gray-300 rounded-full absolute inset-0 -z-10' layoutId="activeSection" transition={{ type: "spring", stiffness: 380, damping: 30 }}></motion.span>)}</Link>
+                                <Link onClick={() => { setActiveSection(link.name), setTimeOfLastClick(Date.now()) }} href={link.hash} className={clsx('flex w-full items-center justify-center px-3 py-3 hover:text-gray-950 transition', { "text-gray-950": activeSection === link.name })}>{link.name}{link.name === activeSection && (<motion.span className='bg-gray-300 rounded-full absolute inset-0 -z-10' layoutId="activeSection" transition={{ type: "spring", stiffness: 380, damping: 30 }}></motion.span>)}</Link>
                             </motion.li>
                         ))
                     }
