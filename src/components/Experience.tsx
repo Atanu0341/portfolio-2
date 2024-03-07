@@ -1,58 +1,34 @@
-'use client'
+"use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import SectionHeading from './SectionHeading';
 import "react-vertical-timeline-component/style.min.css";
 import { useSectionInView } from '../lib/hooks';
-import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
-import { experiencesData } from '../lib/data';
-import { useInView } from 'react-intersection-observer';
-import { useTheme } from '../context/ThemeContextProvider';
+import Work from './Work';
+import Schooling from './Schooling';
 
 export default function Experience() {
-
     const { ref } = useSectionInView("Experience");
-    const { theme } = useTheme();
-
-    // Move useInView outside of the map function
-    const { ref: inViewRef, inView } = useInView({
-        triggerOnce: true,
-    });
+    const [selectedCategory, setSelectedCategory] = useState('education');
 
     return (
         <section id="experience" ref={ref} className="scroll-mt-28 mb-28 sm:mb-40">
             <SectionHeading>My experience</SectionHeading>
-            <VerticalTimeline lineColor="">
-                {experiencesData.map((item, index) => (
-                    <div key={index} ref={inViewRef} className="vertical-timeline-element">
-                        <VerticalTimelineElement
-                            contentStyle={{
-                                background: theme === "light" ? "#f3f4f6" : "rgba(255, 255, 255, 0.05)",
-                                boxShadow: 'none',
-                                border: '1px solid rgba(0, 0, 0, 0.05)',
-                                textAlign: 'left',
-                                padding: '1.3rem 2rem',
-                            }}
-                            contentArrowStyle={{
-                                borderRight: theme === "light"
-                                    ? "0.4rem solid #9ca3af"
-                                    : "0.4rem solid rgba(255, 255, 255, 0.5)",
-                            }}
-                            visible={inView}
-                            date={item.date}
-                            icon={item.icon}
-                            iconStyle={{
-                                background: theme === "light" ? "white" : "rgba(255, 255, 255, 0.15)",
-                                fontSize: '1.5rem',
-                            }}
-                        >
-                            <h3 className="font-semibold capitalize">{item.title}</h3>
-                            <p className="!mt-0 font-normal">{item.location}</p>
-                            <p className="!mt-1 !font-normal text-gray-700 dark:text-white/75">{item.description}</p>
-                        </VerticalTimelineElement>
-                    </div>
-                ))}
-            </VerticalTimeline>
+            <div className="flex justify-center m-auto flex:col md:flex-row gap-2 py-4 w-max">
+                <button
+                    onClick={() => setSelectedCategory('education')}
+                    className={`category-button ${selectedCategory === 'education' && 'active'} text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 cursor-pointer font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 focus:scale-110 hover:scale-110 active:scale-105 transition `}
+                >
+                    Education
+                </button>
+                <button
+                    onClick={() => setSelectedCategory('work')}
+                    className={`category-button ${selectedCategory === 'work' && 'active'} text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 cursor-pointer font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 focus:scale-110 hover:scale-110 active:scale-105 transition `}
+                >
+                    Work
+                </button>
+            </div>
+            {selectedCategory === 'education' ? <Schooling /> : <Work />}
         </section>
-    )
+    );
 }
