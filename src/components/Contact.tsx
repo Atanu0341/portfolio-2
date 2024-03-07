@@ -15,7 +15,7 @@ export default function Contact() {
     return (
         <motion.section id="contact" ref={ref} className="mb-20 sm:mb-28 w-[min(100%,38rem)] text-center" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 1 }} viewport={{ once: true }}>
             <SectionHeading>Contact me</SectionHeading>
-            <p className="text-gray-700 -mt-6 ">
+            <p className="text-gray-700 -mt-6 dark:text-white/80">
                 Please contact me directly at{" "}
                 <a className="underline" href="mailto:atanumajumder2004@gmail.com">
                     atanumajumder2004@gmail.com
@@ -23,9 +23,9 @@ export default function Contact() {
                 or through this form.
             </p>
 
-            <form action={async (formData) => { const { data, error } = await sendEmail(formData); if (error) { toast.error(error); return } toast.success('Email sent successfully') }} className="mt-10 flex flex-col">
-                <input type="email" name="senderEmail" placeholder="Your email" maxLength={500} className="h-14 px-4 rounded-lg border border-black/10 transition-all" required />
-                <textarea className="h-52 my-3 rounded-lg border border-black/10 p-4 transition-all" name="message" placeholder="Your message" maxLength={5000} required />
+            <form action={async (formData) => { const { data, error } = await sendEmail(formData); if (error) { toast.error(error); return } toast.success('Email sent successfully') }} className="mt-10 flex flex-col dark:text-black">
+                <input type="email" name="senderEmail" placeholder="Your email" maxLength={500} className="h-14 px-4 rounded-lg border border-black/10 transition-all dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none" required />
+                <textarea className="h-52 my-3 rounded-lg border border-black/10 p-4 transition-all dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 dark:outline-none" name="message" placeholder="Your message" maxLength={5000} required />
                 <SubmitBtn />
             </form>
         </motion.section>
