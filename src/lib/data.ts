@@ -1,6 +1,5 @@
 import React from "react";
 import { CgWorkAlt } from "react-icons/cg";
-import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import BookWorld from "@/public/BookWorld.png";
 import Portfolio from "@/public/Portfolio.png";
@@ -34,55 +33,57 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Frontend Developer Intern",
+    company: "Target Technology",
+    location: "Kolkata, West Bengal",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
-    icon: React.createElement(LuGraduationCap),
-    date: "2019",
-  },
-  {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
-    description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+      "I leveraged React, Tailwind CSS, and JavaScript skills to craft visually appealing and responsive web interfaces.Collaborated closely with teams, translating designs into seamless user experiences. Optimized website performance for diverse platforms, enhancing project efficiency",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "Sept 2023 — Jan 2024",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "Full Stack Developer Intern",
+    company: "INFOTRIXS",
+    location: "Maharashtra",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
+      "Built a fitness tracker with a dynamic team using React and Tailwind CSS. Collaborated closely, honed problem-solving skills, and thrived in an agile environment.",
+    icon: React.createElement(CgWorkAlt),
+    date: "July 2023 — August 2023",
+  },
+  {
+    title: "Web Developer Intern",
+    location: "Madhya Pradesh",
+    description:
+      "I had the opportunity to work on exciting projects, including the development of a Netflix clone using Tailwind CSS and JavaScript. I collaborated with a talented team to bring this project to life, applying my skills in web development to create an engaging and user-friendly platform.",
+    icon: React.createElement(CgWorkAlt),
+    date: "Aug 2022 — Aug 2022",
   },
 ] as const;
 
 export const schoolData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miamimii, FL",
+    title: "Bachelor of Computer Applications",
+    location: "Kolkata, West Bengal",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      "Having graduated from Techno India Kolkata, with a BCA degree, I possess a solid foundation in technology and adept problem-solving skills, ready to contribute to the dynamic world of computer applications.",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "2021-2024",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
+    title: "Senior Secondary School",
+    location: "Asansol, West Bengal",
     description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
-    icon: React.createElement(CgWorkAlt),
+      "I successfully completed my 11th and 12th grades at D.A.V. Public School, building a solid academic foundation for my future endeavors",
+    icon: React.createElement(LuGraduationCap),
     date: "2019 - 2021",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
+    title: "Secondary School",
+    location: "Asansol, West Bengal",
     description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
-    icon: React.createElement(FaReact),
-    date: "2021 - present",
+      "I completed my 1st and 10th grades, laying the educational groundwork at D.A.V. Public School, establishing a strong academic foundation for future pursuits.",
+    icon: React.createElement(LuGraduationCap),
+    date: "2009 - 2019",
   },
 ] as const;
 
